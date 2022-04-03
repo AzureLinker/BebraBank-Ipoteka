@@ -1,9 +1,9 @@
 # Кальулятор ипотеки БебраБанка
 ***
 ### Авторы:
-[Кирилл Аверьянов - ZianU](https://github.com/AzureLinker) <a id="ZianU"></a>
-[Андрей Пономарёв](https://github.com/ponomarevandrej881)
-[Полина Буренкова](https://github.com/polina222232)
+1. [Кирилл Аверьянов - ZianU](https://github.com/AzureLinker) <a id="ZianU"></a>
+2. [Андрей Пономарёв](https://github.com/ponomarevandrej881)
+3. [Полина Буренкова](https://github.com/polina222232)
 ***
 ### Что может этот калькулятор:
 1. Этот калькулятор может спокойно принимать разные значения, а также действительно высчитывает всё по формулам.
