@@ -1,5 +1,6 @@
 # Кальулятор ипотеки БебраБанка
 ***
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/AzureLinker/BebraBank-Ipoteka?include_prereleases)
 ### Авторы:
 1. [Кирилл Аверьянов - ZianU](https://github.com/AzureLinker) <a id="ZianU"></a>
 2. [Андрей Пономарёв](https://github.com/ponomarevandrej881)
