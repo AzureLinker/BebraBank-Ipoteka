@@ -83,7 +83,6 @@ select{
     display: flex;
     margin-top: 19px;
     flex-wrap: wrap;
-    align-items: center;
 }
 .discount__bars__card{
     margin-right: 12px;
@@ -209,7 +208,6 @@ select{
   border-radius: 50%;
   background-image: url(../img/png/Tooltip-Icon.png);
   position: relative; 
-  margin-right: 12px;
 }
 .tool__tip::before,
 .tool__tip::after{

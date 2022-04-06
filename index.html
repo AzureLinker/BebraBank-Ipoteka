@@ -24,10 +24,10 @@
                 <h2>Калькулятор ипотеки</h2>
             </div>
             <div class="body__leftPart__Form">
-                <form>
+                <form action="test.php" method="post">
                     <p>Цель кредита</p>
                     <div class="body__leftPart__Form__Select">
-                        <select name="creditgoal" id="">
+                        <select name="creditgoal" >
                             <option value="novostroy">Квартира в новостройке</option>
                             <option value="vtorka">Кватира на вторичном рынке</option>
                             <option value="buyhouse">Купить дом</option>
@@ -37,34 +37,33 @@
                     </div>
                     <div class="discount__bars">
                         <div class="discount__bars__card">
-                            <input type="radio" name="radio" id="base-program" value="base-prog" checked>
-                            <label for="base-program">Базовая программа <span class="discount__card__color">от 12%</span></label>
+                            <input type="radio" name="do_sk" id="base-program" value="0.12" checked>
+                            <label for="base-program">Базовая программа <span class="discount__card__color">от -12%</span></label>
                         </div>
                         <div class="discount__bars__card">
-                            <input type="radio" name="radio" id="gos-planning" value="gos-plan" >
-                            <label for="gos-planning">Господдержка <span class="discount__card__color">от 1%</span></label>
+                            <input type="radio" name="do_sk" id="gos-planning" value="0.01" >
+                            <label for="gos-planning">Господдержка <span class="discount__card__color">от -1%</span></label>
                         </div>
                         <div class="discount__bars__card">
-                            <input type="radio" name="radio" id="dood" value="eternal" >
-                            <label for="dood">Вечные <span class="discount__card__color">от +2%</span> </label>
-                        </div>
-                        <div class="tool__tip" data-tooltip="Это очень специфическая программа, такк как для вечных не составит проблем работать столько, сколько необходимо для хаработка денег"></div>
-                        <div class="discount__bars__card">
-                            <input type="radio" name="radio" id="families" value="family" >
-                            <label for="families">Для семей с детьми <span class="discount__card__color">от 5%</span></label>
+                            <input type="radio" name="do_sk" id="dood" value="0.02" >
+                            <label for="dood">Вечные <span class="discount__card__color">от -2%</span></label>
                         </div>
                         <div class="discount__bars__card">
-                            <input type="radio" name="radio" id="pensioner" value="pensia" >
-                            <label for="pensioner">Для пенсионеров <span class="discount__card__color">от 60%</span></label>
+                            <input type="radio" name="do_sk" id="families" value="0.05" >
+                            <label for="families">Для семей с детьми <span class="discount__card__color">от -5%</span></label>
                         </div>
                         <div class="discount__bars__card">
-                            <input type="radio" name="radio" id="specop" value="war" >
-                            <label for="specop">Спецоперационная ипотека <span class="discount__card__color">от 146%</span></label>
+                            <input type="radio" name="do_sk" id="pensioner" value="0.6" >
+                            <label for="pensioner">Для пенсионеров <span class="discount__card__color">от -60%</span></label>
+                        </div>
+                        <div class="discount__bars__card">
+                            <input type="radio" name="do_sk" id="specop" value="1.46" >
+                            <label for="specop">Спецоперационная ипотека <span class="discount__card__color">от -146%</span></label>
                         </div>
                     </div>
-                    <p>Регон покупки недвижимости</p>
+                    <p>Регион покупки недвижимости</p>
                     <div class="body__leftPart__Form__Select">
-                        <select name="buyregion" id="">
+                        <select name="buyregion" >
                             <option value="moscow">Москва</option>
                             <option value="stpetersburg">Санкт-Петербург</option>
                             <option value="helegik">Геленджик</option>
@@ -77,7 +76,7 @@
                         <div class="dis__switch">
                             <div class="dis__number"><p style="color: #8900CA;">-5%</p></div>
                             <label class="form__switch">
-                                <input type="checkbox" class="switch" value="zarkarta" checked>
+                                <input type="checkbox" class="switch" name="zka" value="true" checked>
                                 <span class="slider round"></span>
                             </label>
                         </div>
@@ -90,7 +89,7 @@
                         <div class="dis__switch">
                             <div class="dis__number"><p style="color: #8900CA;">+8%</p></div>
                             <label class="form__switch">
-                                <input type="checkbox" class="switch" value="money" checked>
+                                <input type="checkbox" class="switch" name="dohod" value="true" checked>
                                 <span class="slider round"></span>
                             </label>
                         </div>
@@ -98,17 +97,17 @@
                     <p>Стоимость недвижимости, ₽</p>
                     <div class="ranger__slider__form"> <!--! Переделать слайдер-->
                         <p class="money__numb" id="moneyneed">146000</p>
-                        <input type="range" class="beautiful__slider" min="146000" value="146000" max="146000000" step="50000" pattern="\d{3} \d{3} \d{3}" data-charset="_X_ X_X" oninput="moneyneed.innerText = this.value">
+                        <input name="tr_summ" type="range" class="beautiful__slider" min="146000" value="146000" max="146000000" step="50000" pattern="\d{3} \d{3} \d{3}" data-charset="_X_ X_X" oninput="moneyneed.innerText = this.value">
                     </div>
                     <p>Первоначальный взнос, ₽</p>
                     <div class="ranger__slider__form"> <!--! Переделать слайдер-->
                         <p class="money__numb" id="moneyhave">60000</p>
-                        <input type="range" class="beautiful__slider" min="60000" value="60000" max="100000000" step="50000" oninput="moneyhave.innerText = this.value">
+                        <input name="perv_v" type="range" class="beautiful__slider" min="60000" value="60000" max="100000000" step="50000" oninput="moneyhave.innerText = this.value">
                     </div>
-                    <p>Первоначальный взнос, мес.</p>
+                    <p>срок, мес.</p>
                     <div class="ranger__slider__form"> <!--! Переделать слайдер-->
                         <p class="money__numb" id="months">12</p> 
-                        <input type="range" class="beautiful__slider" min="12" value="12" max="60" step="1" oninput="months.innerText = this.value">
+                        <input name="god" type="range" class="beautiful__slider" min="12" value="12" max="60" step="1" oninput="months.innerText = this.value">
                     </div>
                     <div class="sp__build"></div>
                     <input type="submit" value="Расчитать ипотеку" class="btn">
