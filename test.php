@@ -20,6 +20,9 @@ if($pod_v == 'true') {
         $do_sk = 0; // Если скидка меньше нуля, то она равна 0%
     } 
 }
+if($do_sk > 0.7){
+    header('Location: /money.html');
+}
 $summ_op = ($tr_summ - $perv_v); // сумма без первоначального взноса
 $skidka= $summ_op * $do_sk; // сколько скинуть надо
 $pl_v_mb = $summ_op - $skidka; // сумма со скидкой
