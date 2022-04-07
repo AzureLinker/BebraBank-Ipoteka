@@ -1,36 +1,56 @@
 <?php
+require 'TableMaker.php';
 $tr_summ = $_POST['tr_summ']; // Сколько надо
 $perv_v = $_POST['perv_v']; // Первоначально
 if($perv_v > $tr_summ){
     header('Location: /error.php');
 }
 $god = $_POST['god']; // Сколько месяцев
+$half_god = ceil($god / 2); // Половина срока
 $do_sk = $_POST['do_sk']; // Скидка
 $zka = $_POST['zka']; // Есть ли зарплатная карта
 $pod_v = $_POST['dohod']; // Подтверждённый ли доход
 if($zka == 'true') {
-    $do_sk = $do_sk + 0.05; // если есть зарплатная, то прибавить скидку на 5%
+    $do_sk = $do_sk - 0.05; // если есть зарплатная, то прибавить скидку на 5%
     if($do_sk < 0){
         $do_sk = 0; // Если скидка меньше нуля, то она равна 0%
     } 
 }
 if($pod_v == 'true') {
-    $do_sk = $do_sk - 0.08; // если подтверждённый доход, то убавить скидку на 8%
+    $do_sk = $do_sk + 0.08; // если подтверждённый доход, то убавить скидку на 8%
     if($do_sk < 0){
         $do_sk = 0; // Если скидка меньше нуля, то она равна 0%
     } 
 }
-if($do_sk > 0.7){
-    header('Location: /money.html');
-}
 $summ_op = ($tr_summ - $perv_v); // сумма без первоначального взноса
-$skidka= $summ_op * $do_sk; // сколько скинуть надо
-$pl_v_mb = $summ_op - $skidka; // сумма со скидкой
+$skidka = $summ_op * $do_sk; // сколько надо добавить
+$pl_v_mb = $summ_op + $skidka; // сумма с программой
 $pl_v_m = ($pl_v_mb / $god); // плата в месяц
 $pl_v_ma = ceil($pl_v_m); // плата в месяц, округлено
 $tdohod = $pl_v_ma + 12000; // необходимый доход
 $zahem = $_POST['creditgoal']; // цель кредита
 $gde = $_POST['buyregion']; // регион
+$sk_v_m = ceil($skidka / $half_god); //погашение налога в месяц
+$nalog_vichet = ceil($tdohod * 0.13); // налоговый вычет
+$pl_v_dg = $pl_v_ma - $sk_v_m; //
+$n = 0;
+$test_ar = array(
+    'gde' => $gde,
+'zahem' => $zahem,
+'trebuemaya summa' => $tr_summ,
+'nalog' => $do_sk * 100,
+'zarplatnaya karta' => $zka,
+'podtverjdennyi dohod' => $pod_v,
+'mesacev' => $god,
+'summa s nalogom' => $pl_v_mb,
+'plata v mesac' => $pl_v_ma,
+'neobhodimyi dohod' => $tdohod,
+);
+$wrte = json_encode($test_ar);
+$fp = fopen("result.json", "w");
+fwrite($fp, $wrte);
+fclose($fp);
+
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +82,7 @@ $gde = $_POST['buyregion']; // регион
                 </tr>
                 <tr>
                     <td>Процентная ставка:</td>
-                    <td><?echo $do_sk?>%</td>
+                    <td><?echo $do_sk * 100?>%</td>
                 </tr>
                 <tr>
                     <td>Сумма кредита:</td>
@@ -70,7 +90,7 @@ $gde = $_POST['buyregion']; // регион
                 </tr>
                 <tr>
                     <td>Налоговый вычет:</td>
-                    <td><?echo $skidka?> ₽</td>
+                    <td><?echo $nalog_vichet?> ₽</td>
                 </tr><tr>
                     <td>Необходимый доход:</td>
                     <td><?echo $tdohod?> ₽</td>
@@ -84,22 +104,11 @@ $gde = $_POST['buyregion']; // регион
                     <th>Погашение налога</th>
                     <th>Погашение долга</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td><?echo $pl_v_ma?> ₽</td>
-                    <td><?echo $pl_v_ma?> ₽</td>
-                    <td>0 ₽</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><?echo $pl_v_ma?> ₽</td>
-                    <td>398 388 ₽</td>
-                    <td>75 883 ₽</td>
-                </tr>
+                <?echo make_line($n, $pl_v_ma, $sk_v_m, $pl_v_dg, $skidka, $god, $half_god)?>
             </table>
             <div class="buttons">
                 <div class="link middle-link"><a class="Link__BTN" href="">Подать заявку</a></div>
-                <div class="link middle-link"><a class="Link__BTN" href="">Сохранить результат</a></div>
+                <div class="link middle-link"><a class="Link__BTN" href="dowld.php">Сохранить результат</a></div>
             </div>
         </div>
     </div>
