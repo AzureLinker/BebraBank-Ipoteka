@@ -75,6 +75,7 @@ fclose($fp);
     <div class="body">
         <div class="result__table">
             <p class="result-text">Результат обработки:</p>
+            <a class="Link__BTN" href="index.html">Назад</a>
             <table class="result__table__result">
                 <tr>
                     <td>Ежемесячный платёж:</td>
