@@ -74,8 +74,10 @@ fclose($fp);
     </div>
     <div class="body">
         <div class="result__table">
-            <p class="result-text">Результат обработки:</p>
-            <a class="Link__BTN" href="index.html">Назад</a>
+            <p class="result-text">Результат обработки:
+                <br>
+                <a class="Link__BTN" href="index.html">Назад</a>
+            </p>
             <table class="result__table__result">
                 <tr>
                     <td>Ежемесячный платёж:</td>
