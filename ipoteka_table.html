@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="ipoteka_table.css" >
+    <link>
+</head>
+<body>
+<div class="header">
+    <div class="header__logo">
+        <img class="logo" src="logo.png" alt="Логотип">
+        <div class="header__text">БебраБанл</div>
+    </div>
+</div>
+<div class="body">
+    <div class="body__leftPart">
+        <h1>Ёбаный рот этого казино, блять</h1>
+        <h2>Ты кто такой, сука, чтобы это сделать?</h2>
+        <div class="body__leftPart__Form">
+            <form>
+                <p>Зачем тебе деньги? У тебя есть коробка из под холодильника.</p>
+                <div class="body__leftPart__Form__Select">
+                    <select name="creditgoal" id="">
+                        <option value="novostroy">Хочу сахар, бумагу и гречку</option>
+                        <option value="vtorka">Кватира на вторичном рынке</option>
+                        <option value="buyhouse">Купить дом</option>
+                        <option class="options" value="buildhouse">Построить дом</option>
+                    </select>
+                </div>
+                <span class="custom-arrow"></span><div class="discount__bars">
+                <div class="discount__bars__card">
+                    <input type="radio" name="radio" id="base-program" value="base-prog" checked="">
+                    <label for="base-program">Пидор от  <span class="discount__card__color">от 12%</span></label>
+                </div>
+                <div class="discount__bars__card">
+                    <input type="radio" name="radio" id="gos-planning" value="gos-plan">
+                    <label for="gos-planning">Инагент <span class="discount__card__color">от 1%</span></label>
+                </div>
+                <div class="discount__bars__card">
+                    <input type="radio" name="radio" id="dood" value="eternal">
+                    <label for="dood">Навльный <span class="discount__card__color">от +2%</span> </label>
+                </div>
+                <div class="tool__tip" data-tooltip="Это очень специфическая программа, такк как для вечных не составит проблем работать столько, сколько необходимо для хаработка денег"></div>
+                <div class="discount__bars__card">
+                    <input type="radio" name="radio" id="families" value="family">
+                    <label for="families">Z<span class="discount__card__color">от 5%</span></label>
+                </div>
+                <div class="discount__bars__card">
+                    <input type="radio" name="radio" id="pensioner" value="pensia">
+                    <label for="pensioner">Крым-наш <span class="discount__card__color">от 60%</span></label>
+                </div>
+                <div class="discount__bars__card">
+                    <input type="radio" name="radio" id="specop" value="war">
+                    <label for="specop">Пишу доносы, сру понос <span class="discount__card__color">от 146%</span></label>
+                </div>
+            </div>
+                <p>И где ты будешь жить, бомж?</p>
+                <div class="body__leftPart__Form__Select">
+                    <select name="buyregion" id="">
+                        <option value="Rostov-na-Donbasse">Ростов-на-Донбассе</option>
+                        <option value="stpetersburg">Санкт-Петербург</option>
+                        <option value="helegik">Геленджик</option>
+                        <option class="syktyvkar" value="buildhouse">Сыктывкар</option>
+                    </select>
+                    <span class="custom-arrow"></span>
+                </div>
+                <div class="form__switch__bar">
+                    <p>Есть анальная карта БебраБанкаа</p>
+                    <div class="dis__switch">
+                        <div class="dis__number"><p style="color: #8900CA;">-5%</p></div>
+                        <label class="form__switch">
+                            <input type="checkbox" class="switch" value="zarkarta" checked="">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form__switch__bar">
+                    <div class="flex-text">
+                        <p class="new-text">У тебя деньги есть, дебил?</p>
+                        <div class="tool__tip" data-tooltip="Раз у вас есть деньги, то значит, что мы можем брать с вас больше денег, так как сейчас сложное время, а нам нужны деньги."></div>
+                    </div>
+                    <div class="dis__switch">
+                        <div class="dis__number"><p style="color: #8900CA;">+8%</p></div>
+                        <label class="form__switch">
+                            <input type="checkbox" class="switch" value="money" checked="">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                <p>Скока нада? ¥</p>
+                <div class="ranger__slider__form"> <!--! Переделать слайдер-->
+                    <p class="money__numb" id="moneyneed">146000</p>
+                    <input type="range" class="beautiful__slider" min="146000" value="146000" max="146000000" step="50000" pattern="\d{3} \d{3} \d{3}" data-charset="_X_ X_X" oninput="moneyneed.innerText = this.value">
+                </div>
+                <p>Первоначальный понос, ¥</p>
+                <div class="ranger__slider__form"> <!--! Переделать слайдер-->
+                    <p class="money__numb" id="moneyhave">60000</p>
+                    <input type="range" class="beautiful__slider" min="60000" value="60000" max="100000000" step="50000" oninput="moneyhave.innerText = this.value">
+                </div>
+                <p>Срок в тюрьме мес.</p>
+                <div class="ranger__slider__form"> <!--! Переделать слайдер-->
+                    <p class="money__numb" id="months">14</p>
+                    <input type="range" class="beautiful__slider" min="12" value="12" max="60" step="1" oninput="months.innerText = this.value">
+                </div>
+                <div class="sp__build"></div>
+                <input type="submit" value="Расчитать ипотеку" class="btn">
+            </form>
+        </div>
+    </div>
+    <div class="body__rightPart">
+        <div class="link"><a class="Link__BTN" href="">Почему Carnival Night Zone</a></div>
+        <div class="link"><a class="Link__BTN" href="">Какого хуя это БебраБанк</a></div>
+        <div class="link"><a class="Link__BTN" href="">Расчитать хуйню эту</a></div>
+        <div class="link"><a class="Link__BTN" href="">Что это за говно?</a></div>
+    </div>
+    </div>
+</div>
+<div class="footer">
+    <p>2021-2022. Carnival Night Zone(C). БебраБанк - торговая марка, принадлежащая Carnival Night Zone.</p>
+</div>
+</body>
+</html>
