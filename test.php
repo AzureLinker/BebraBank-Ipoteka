@@ -20,6 +20,9 @@ if($pod_v == 'true') {
         $do_sk = 0; // Если скидка меньше нуля, то она равна 0%
     } 
 }
+if($do_sk > 0.7){
+    header('Location: /money.html');
+}
 $summ_op = ($tr_summ - $perv_v); // сумма без первоначального взноса
 $skidka= $summ_op * $do_sk; // сколько скинуть надо
 $pl_v_mb = $summ_op - $skidka; // сумма со скидкой
@@ -28,6 +31,22 @@ $pl_v_ma = ceil($pl_v_m); // плата в месяц, округлено
 $tdohod = $pl_v_ma + 12000; // необходимый доход
 $zahem = $_POST['creditgoal']; // цель кредита
 $gde = $_POST['buyregion']; // регион
+$test_ar = array(
+        'gde' => $gde,
+    'zahem' => $zahem,
+    'trebuemaya summa' => $tr_summ,
+    'skidka' => $do_sk,
+    'zarplatnaya karta' => $zka,
+    'podtverjdennyi dohod' => $pod_v,
+    'mesacev' => $god,
+    'summa so skidkoi' => $pl_v_mb,
+    'plata v mesac' => $pl_v_ma,
+    'neobhodimyi dohod' => $tdohod
+    );
+$wrte = json_encode($test_ar);
+$fp = fopen("result.json", "w");
+fwrite($fp, $wrte);
+fclose($fp);
 ?>
 
 <!DOCTYPE html>
@@ -96,7 +115,7 @@ $gde = $_POST['buyregion']; // регион
             </table>
             <div class="buttons">
                 <div class="link middle-link"><a class="Link__BTN" href="">Подать заявку</a></div>
-                <div class="link middle-link"><a class="Link__BTN" href="">Сохранить результат</a></div>
+                <div class="link middle-link"><a class="Link__BTN" href="dowld.php">Сохранить результат</a></div>
             </div>
         </div>
     </div>
