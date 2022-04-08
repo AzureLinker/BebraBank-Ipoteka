@@ -1,6 +1,6 @@
 <?php
 require './src/TableMaker.php';
-require './src/makeResult.php';
+require './src/resultCount.php';
 $tr_summ = $_POST['tr_summ']; // Сколько надо
 $perv_v = $_POST['perv_v']; // Первоначально
 if($perv_v > $tr_summ){

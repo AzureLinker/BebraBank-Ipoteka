@@ -1,15 +1,54 @@
 <?php
+namespace Zianu\BebraBankIpoteka;
 
 use PHPUnit\Framework\TestCase;
-use AzureLink\makeResult\resultCount;
+use Zianu\BebraBankIpoteka\resultCount;
 
-class makeResultTests extends TestCase{
-    public function defaultTest(){
-        $love = true;
-        self::assertTrue($love); 
+class makeResultTests extends TestCase {
+ 
+    public function testStub1() {
+        $tr_summ = 100000;
+        $perv_v = 60000;
+        $do_sk = 0.15;
+        $god = 12;
+        $half_god = 6;
+        $summ_new = new resultCount();
+        self::assertEquals($summ_new->countNumbers($tr_summ, $perv_v, $do_sk, $god, $half_god), [40000, 6000, 46000, 3834, 15834, 1000, 2059, 2834]);
     }
-    public function array_right_Count(){
-        $countArray = new resultCount(100000, 60000, 0.15, 12, 6);
-        $this->assertEquals($countArray->countNumbers(), [40000, 6000, 46000, 3833, 15833, 1000, 2058, 2833]);
+    public function testStub2() {
+        $tr_summ = 146000000;
+        $perv_v = 60000;
+        $do_sk = 0.01;
+        $god = 60;
+        $half_god = 30;
+        $summ_new = new resultCount();
+        self::assertEquals($summ_new->countNumbers($tr_summ, $perv_v, $do_sk, $god, $half_god), [145940000, 1459400, 147399400, 2456657, 2468657, 48647, 320926, 2408010]);
+    }
+    public function testStub3() {
+        $tr_summ = 560000;
+        $perv_v = 120000;
+        $do_sk = 0.55;
+        $god = 23;
+        $half_god = 12;
+        $summ_new = new resultCount();
+        self::assertEquals($summ_new->countNumbers($tr_summ, $perv_v, $do_sk, $god, $half_god), [440000, 242000, 682000, 29653, 41653, 20167, 5415, 9486]);
+    }
+    public function testStub4() {
+        $tr_summ = 146000;
+        $perv_v = 100000;
+        $do_sk = 1.54;
+        $god = 45;
+        $half_god = 23;
+        $summ_new = new resultCount();
+        self::assertEquals($summ_new->countNumbers($tr_summ, $perv_v, $do_sk, $god, $half_god), [46000, 70840, 116840, 2597, 14597, 3080, 1898, -483]);
+    }
+    public function testStub5() {
+        $tr_summ = 200000;
+        $perv_v = 70000;
+        $do_sk = 0.06;
+        $god = 60;
+        $half_god = 30;
+        $summ_new = new resultCount();
+        self::assertEquals($summ_new->countNumbers($tr_summ, $perv_v, $do_sk, $god, $half_god), [130000, 7800, 137800, 2297, 14297, 260, 1859, 2037]);
     }
 }

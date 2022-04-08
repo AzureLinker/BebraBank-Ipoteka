@@ -1,5 +1,6 @@
 {
     "name": "zianu/bebra-bank-ipoteka",
+    "type": "project",
     "autoload": {
         "psr-4": {
             "Zianu\\BebraBankIpoteka\\": "src/"
@@ -11,7 +12,7 @@
             "email": "hunnybofficial@gmail.com"
         }
     ],
-    "require-dev": {
+    "require": {
         "phpunit/phpunit": "^9.5"
     }
 }
