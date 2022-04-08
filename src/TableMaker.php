@@ -18,4 +18,5 @@ function make_line($n, $pl_v_ma, $sk_v_m, $pl_v_dg, $skidka, $god, $half_god){
         echo "</tr>";
         if($sk_v_m <= $pl_v_ma){$sk_v_m = $pl_v_ma;}
     }
+    return $n;
 }

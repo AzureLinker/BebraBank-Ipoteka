@@ -1,0 +1,17 @@
+{
+    "name": "zianu/bebra-bank-ipoteka",
+    "autoload": {
+        "psr-4": {
+            "Zianu\\BebraBankIpoteka\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ZianU",
+            "email": "hunnybofficial@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
