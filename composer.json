@@ -14,5 +14,9 @@
     ],
     "require": {
         "phpunit/phpunit": "^9.5"
+    },
+    "require-dev": {
+        "estahn/phpunit-json-assertions": "^4.0",
+        "symfony/phpunit-bridge": "^6.0"
     }
 }

@@ -27,22 +27,6 @@ $zahem = $_POST['creditgoal']; // цель кредита
 $gde = $_POST['buyregion']; // регион
 $n = 0;
 $results = new resultCount.countNumbers($tr_summ, $perv_v, $do_sk, $god, $half_god);
-$test_ar = array(
-    'gde' => $gde,
-'zahem' => $zahem,
-'trebuemaya summa' => $tr_summ,
-'nalog' => $do_sk * 100,
-'zarplatnaya karta' => $zka,
-'podtverjdennyi dohod' => $pod_v,
-'mesacev' => $god,
-'summa s nalogom' => $pl_v_mb,
-'plata v mesac' => $pl_v_ma,
-'neobhodimyi dohod' => $tdohod,
-);
-$wrte = json_encode($test_ar);
-$fp = fopen("result.json", "w");
-fwrite($fp, $wrte);
-fclose($fp);
 
 ?>
 
@@ -104,7 +88,7 @@ fclose($fp);
             </table>
             <div class="buttons">
                 <div class="link middle-link"><a class="Link__BTN" href="">Подать заявку</a></div>
-                <div class="link middle-link"><a class="Link__BTN" href="dowld.php">Сохранить результат</a></div>
+                <div class="link middle-link"><a class="Link__BTN" href="/src/resultCoder.php">Сохранить результат</a></div>
             </div>
         </div>
     </div>

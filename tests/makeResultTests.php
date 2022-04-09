@@ -1,5 +1,5 @@
 <?php
-namespace Zianu\BebraBankIpoteka;
+namespace Zianu\BebraBankIpoteka\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Zianu\BebraBankIpoteka\resultCount;
@@ -50,5 +50,14 @@ class makeResultTests extends TestCase {
         $half_god = 30;
         $summ_new = new resultCount();
         self::assertEquals($summ_new->countNumbers($tr_summ, $perv_v, $do_sk, $god, $half_god), [130000, 7800, 137800, 2297, 14297, 260, 1859, 2037]);
+    }
+    public function testStub6() {
+        $tr_summ = 10000000;
+        $perv_v = 100000;
+        $do_sk = 1.54;
+        $god = 18;
+        $half_god = 9;
+        $summ_new = new resultCount();
+        self::assertEquals($summ_new->countNumbers($tr_summ, $perv_v, $do_sk, $god, $half_god), [9900000, 15246000, 25146000, 1397000, 1409000, 1694000, 183170, -297000]);
     }
 }
