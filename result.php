@@ -1,6 +1,5 @@
 <?php
-require './src/TableMaker.php';
-require './src/resultCount.php';
+require 'TableMaker.php';
 $tr_summ = $_POST['tr_summ']; // Сколько надо
 $perv_v = $_POST['perv_v']; // Первоначально
 if($perv_v > $tr_summ){
@@ -23,10 +22,34 @@ if($pod_v == 'true') {
         $do_sk = 0; // Если скидка меньше нуля, то она равна 0%
     } 
 }
+$summ_op = ($tr_summ - $perv_v); // сумма без первоначального взноса
+$skidka = $summ_op * $do_sk; // сколько надо добавить
+$pl_v_mb = $summ_op + $skidka; // сумма с программой
+$pl_v_m = ($pl_v_mb / $god); // плата в месяц
+$pl_v_ma = ceil($pl_v_m); // плата в месяц, округлено
+$tdohod = $pl_v_ma + 12000; // необходимый доход
 $zahem = $_POST['creditgoal']; // цель кредита
 $gde = $_POST['buyregion']; // регион
+$sk_v_m = ceil($skidka / $half_god); //погашение налога в месяц
+$nalog_vichet = ceil($tdohod * 0.13); // налоговый вычет
+$pl_v_dg = $pl_v_ma - $sk_v_m; //
 $n = 0;
-$results = new resultCount.countNumbers($tr_summ, $perv_v, $do_sk, $god, $half_god);
+$test_ar = array(
+    'gde' => $gde,
+'zahem' => $zahem,
+'trebuemaya summa' => $tr_summ,
+'nalog' => $do_sk * 100,
+'zarplatnaya karta' => $zka,
+'podtverjdennyi dohod' => $pod_v,
+'mesacev' => $god,
+'summa s nalogom' => $pl_v_mb,
+'plata v mesac' => $pl_v_ma,
+'neobhodimyi dohod' => $tdohod,
+);
+$wrte = json_encode($test_ar);
+$fp = fopen("result.json", "w");
+fwrite($fp, $wrte);
+fclose($fp);
 
 ?>
 
@@ -51,10 +74,8 @@ $results = new resultCount.countNumbers($tr_summ, $perv_v, $do_sk, $god, $half_g
     </div>
     <div class="body">
         <div class="result__table">
-            <p class="result-text">Результат обработки:
-                <br>
-                <a class="Link__BTN" href="index.html">Назад</a>
-            </p>
+            <p class="result-text">Результат обработки:</p>
+            <a class="Link__BTN" href="index.html">Назад</a>
             <table class="result__table__result">
                 <tr>
                     <td>Ежемесячный платёж:</td>
@@ -88,7 +109,7 @@ $results = new resultCount.countNumbers($tr_summ, $perv_v, $do_sk, $god, $half_g
             </table>
             <div class="buttons">
                 <div class="link middle-link"><a class="Link__BTN" href="">Подать заявку</a></div>
-                <div class="link middle-link"><a class="Link__BTN" href="/src/resultCoder.php">Сохранить результат</a></div>
+                <div class="link middle-link"><a class="Link__BTN" href="dowld.php">Сохранить результат</a></div>
             </div>
         </div>
     </div>
