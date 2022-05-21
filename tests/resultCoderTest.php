@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 use PHPUnit\Framework\TestCase;
 use Zianu\BebraBankIpoteka\resultCoder;
 
-class TestResultDown extends TestCase {
+class resultCoderTest extends TestCase {
 
  
     public function testRes1() {

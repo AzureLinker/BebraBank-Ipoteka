@@ -4,7 +4,7 @@ namespace Zianu\BebraBankIpoteka\Tests;
 use PHPUnit\Framework\TestCase;
 use Zianu\BebraBankIpoteka\resultCount;
 
-class TestMakeResult extends TestCase {
+class resultCountTest extends TestCase {
  
     public function testStub1() {
         $tr_summ = 100000;
