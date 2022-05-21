@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-require 'TableMaker.php';
->>>>>>> a30b6791b30838a28fe529e23eb74e6ed0a339af
 $tr_summ = $_POST['tr_summ']; // Сколько надо
 $perv_v = $_POST['perv_v']; // Первоначально
 if($perv_v > $tr_summ){
@@ -37,7 +33,6 @@ $sk_v_m = ceil($skidka / $half_god); //погашение налога в мес
 $nalog_vichet = ceil($tdohod * 0.13); // налоговый вычет
 $pl_v_dg = $pl_v_ma - $sk_v_m; //
 $n = 0;
-<<<<<<< HEAD
 $summ_op = ($tr_summ - $perv_v); // сумма без первоначального взноса
 $skidka = $summ_op * $do_sk; // сколько надо добавить
 $pl_v_mb = $summ_op + $skidka; // сумма с программой
@@ -66,25 +61,6 @@ function make_line($n, $pl_v_ma, $sk_v_m, $pl_v_dg, $skidka, $god, $half_god){
         if($sk_v_m <= $pl_v_ma){$sk_v_m = $pl_v_ma;}
     }
 }
-=======
-$test_ar = array(
-    'gde' => $gde,
-'zahem' => $zahem,
-'trebuemaya summa' => $tr_summ,
-'nalog' => $do_sk * 100,
-'zarplatnaya karta' => $zka,
-'podtverjdennyi dohod' => $pod_v,
-'mesacev' => $god,
-'summa s nalogom' => $pl_v_mb,
-'plata v mesac' => $pl_v_ma,
-'neobhodimyi dohod' => $tdohod,
-);
-$wrte = json_encode($test_ar);
-$fp = fopen("result.json", "w");
-fwrite($fp, $wrte);
-fclose($fp);
-
->>>>>>> a30b6791b30838a28fe529e23eb74e6ed0a339af
 ?>
 
 <!DOCTYPE html>
