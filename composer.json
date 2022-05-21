@@ -1,5 +1,5 @@
 {
-    "name": "zianu/bebra-bank-ipoteka",
+    "name": "zianu/bebrabankipoteka",
     "type": "project",
     "autoload": {
         "psr-4": {
@@ -13,7 +13,8 @@
         }
     ],
     "require": {
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "symfony/symfony": "^6.0"
     },
     "require-dev": {
         "estahn/phpunit-json-assertions": "^4.0",

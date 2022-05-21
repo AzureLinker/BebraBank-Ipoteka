@@ -1,8 +1,6 @@
 <?php
 namespace Zianu\BebraBankIpoteka;
 
-
-
 class resultDown{
 
     public function resultMake($test_ar){
